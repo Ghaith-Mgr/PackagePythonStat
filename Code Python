@@ -1,1 +1,45 @@
 
+#Module qui calcule le coefficient de correation:
+def ProduitListe(a,b,c): #Module qui fait le produit d'une liste
+    for i in range(len(a)):
+        c.append(a[i]*b[i])
+    return c
+    
+        
+
+
+def correlation(a,b):
+    x = sum(a) #Somme des valeurs de la première liste nommée a
+    y = sum(b) #Somme des valeurs de la seconde liste nommée b
+    x2= x ** 2  #Somme des valeurs de la liste a le tout au carré
+    y2 = y ** 2 #Somme des valeurs de la liste a le tout au carré
+    
+    CarreeDeAB = []
+    ScareAB = ProduitListe(a,b,CarreeDeAB) #On fait le produit de la liste a avec la b
+    
+    CarreeDeA = []  
+    ScareA = ProduitListe(a,a,CarreeDeA) #On fait le produit la list a avec elle-même.
+    
+    CarreeDeB = []
+    ScareB = ProduitListe(b,b,CarreeDeB) #On fait le produit la list b avec elle-même.
+    
+    SommeCarreeDeAB = sum(ScareAB) 
+    SommeCarreeDeA = sum(ScareA) #Somme des valeurs de A au carré
+    SommeCarreeDeB = sum(ScareB)
+    
+    z = len(a)
+    #On appelle le coefficient de correlation R
+    
+    R = (z*SommeCarreeDeAB - x*y) / (cmath.sqrt(z*SommeCarreeDeA - x2) * cmath.sqrt(z*SommeCarreeDeB - y2))
+    
+    r = R.real
+
+    
+    if r >= -0.1 and r < 0.1:
+        print("Le coéfficient de correlation est de ",r,", donc il n'y a pas de correlation entre les 2 variables")
+    elif r > 0.1 and r < 0.5:
+        print("Le coéfficient de correlation est de ",r,", donc il y a  correlation positive très faible entre les 2 variables")
+    elif r >= 0.5 and r < 1:
+        print("Le coéfficient de correlation est de ",r,", donc il y a une correlation positive très forte entre les 2 variables")
+    elif r == 1:
+        print("Le coéfficient de correlation est de ",r,", donc il y a une correlation  positive parfaite entre les 2 variables")
