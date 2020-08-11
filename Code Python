@@ -30,9 +30,9 @@ def correlation(a,b):
     z = len(a)
     #On appelle le coefficient de correlation R
     
-    R = (z*SommeCarreeDeAB - x*y) / (cmath.sqrt(z*SommeCarreeDeA - x2) * cmath.sqrt(z*SommeCarreeDeB - y2))
+    r = (z*SommeCarreeDeAB - x*y) / (math.sqrt(z*SommeCarreeDeA - x2) * math.sqrt(z*SommeCarreeDeB - y2))
     
-    r = R.real
+    
 
     
     if r >= -0.1 and r < 0.1:
