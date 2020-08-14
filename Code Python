@@ -9,8 +9,8 @@ def ProduitListe(a,b,c): #Module qui fait le produit d'une liste
 
 
 def correlation(a,b):
-    x = sum(a) #Somme des valeurs de la première liste nommée a
-    y = sum(b) #Somme des valeurs de la seconde liste nommée b
+    x = sum(a) #Somme des valeurs de la première liste nommée a.
+    y = sum(b) #Somme des valeurs de la seconde liste nommée b.
     x2= x ** 2  #Somme des valeurs de la liste a le tout au carré
     y2 = y ** 2 #Somme des valeurs de la liste a le tout au carré
     
