@@ -1,0 +1,20 @@
+def Test_Loi_Normal(data,moy,marge_erreur):
+    ts = (statistics.mean(data) - moy) / (statistics.stdev(data)/math.sqrt(len(data)))
+    m_erreur = marge_erreur / 100 
+    PH0 = norm.ppf(m_erreur)
+    P_value = norm.cdf(ts)
+    if ts > PH0:
+        print("On rejette H0 au niveau", marge_erreur,'%')
+    else :
+        print("On ne rejette pas l'hypothése null")
+
+
+    
+a = [3,4,5,6]
+Test_Loi_Normal(a,6,5)
+
+
+def Test_Loi_Student(data,moy,marge_erreur):
+    Erreur_type=  statistics.stdev(data)/ math.sqrt(data)
+    m_erreur = marge_erreur / 100 
+    ts =  (statistics.mean(data) - moy) / Erreur_type
