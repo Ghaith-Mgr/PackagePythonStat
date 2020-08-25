@@ -1,0 +1,28 @@
+def Test_Loi_Student_Sup(data,moy,marge_erreur):
+    c = []
+    for i in range(len(data)):
+        c.append((data[i]-6.56)*(data[i]-6.56))
+        Sn2 = sum(c)/ (len(data)-1)
+    ts =  math.sqrt(len(data)(statistics.mean(data) - moy) / math.sqrt(Sn2)
+    PH0 = 1 - (marge_erreur / 100) 
+    df = len(data)-1
+    Kalpha = t.ppf(m_erreur,df)
+    if ts > PH0:
+        print("On rejette H0 au niveau", marge_erreur,'%')
+    else :
+        print("On ne rejette pas l'hypothése null")
+
+def Test_Loi_Student_Inf(data,moy,marge_erreur):
+    c = []
+    for i in range(len(data)):
+        c.append((data[i]-6.56)*(data[i]-6.56))
+        Sn2 = sum(c)/ (len(data)-1)
+    ts =  math.sqrt(len(data)(statistics.mean(data) - moy) / math.sqrt(Sn2)
+    PH0 = 1 - (marge_erreur / 100) 
+    df = len(data)-1
+    Kalpha = -(t.ppf(m_erreur,df))
+    if ts < PH0:
+        print("On rejette H0 au niveau", marge_erreur,'%')
+    else :
+        print("On ne rejette pas l'hypothése null")
+    
