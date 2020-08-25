@@ -1,0 +1,33 @@
+import cmath
+import math
+import statistics
+def Test_Loi_Normal_Sup(data,moy,marge_erreur):
+    ts = (statistics.mean(data) - moy) / (statistics.stdev(data)/math.sqrt(len(data)))
+    m_erreur = marge_erreur / 100 
+    PH0 = norm.ppf(m_erreur)
+    P_value = norm.cdf(ts)
+    if ts > PH0:
+        print("On rejette H0 au niveau", marge_erreur,'%')
+    else :
+        print("On ne rejette pas l'hypothése null")
+        
+def Test_Loi_Normal_Inf(data,moy,marge_erreur):
+    ts = (statistics.mean(data) - moy) / (statistics.stdev(data)/math.sqrt(len(data)))
+    m_erreur = marge_erreur / 100 
+    PH0 = -(norm.ppf(m_erreur))
+    P_value = norm.cdf(ts)
+    if ts < PH0:
+        print("On rejette H0 au niveau", marge_erreur,'%')
+    else :
+        print("On ne rejette pas l'hypothése null")
+        
+def Test_Loi_Normal_Eg(data,moy,marge_erreur):
+    ts = (statistics.mean(data) - moy) / (statistics.stdev(data)/math.sqrt(len(data)))
+    m_erreur = marge_erreur / 100 
+    PH0 = norm.ppf(m_erreur)
+    P_value = norm.cdf(ts)
+    if ts > PH0 or ts < PH0:
+        print("On rejette H0 au niveau", marge_erreur,'%')
+    else :
+        print("On ne rejette pas l'hypothése null")
+        
