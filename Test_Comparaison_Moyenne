@@ -1,0 +1,57 @@
+def Test_Comparaison_Student_Sup(data1,data2,marge_erreur):
+    c = []
+    for i in range(len(data1)):
+        c.append((data1[i]-statistics.mean(data1))*(data1[i]-statistics.mean(data1)))
+        Sn2 = sum(c)/ (len(data1)-1)
+    d = []
+    for i in range(len(data2)):
+        d.append((data2[i]-statistics.mean(data2))*(data2[i]-statistics.mean(data2)))
+        Pn2 = sum(d)/ (len(data2)-1)
+    Snp2 = (Sn2+Pn2)/(len(data1)+len(data2)-2)
+    df = len(data1)+len(data2)-2
+    PH0 = 1 -  (marge_erreur / 100) 
+    Kalpha = t.ppf(PH0,df)
+    if ts < Kalpha:
+        print("On rejette H0 au niveau", marge_erreur,'%')
+    else :
+        print("On ne rejette pas l'hypothése null")
+
+def Test_Comparaison_Student_Inf(data1,data2,marge_erreur):
+    c = []
+    for i in range(len(data1)):
+        c.append((data1[i]-statistics.mean(data1))*(data1[i]-statistics.mean(data1)))
+        Sn2 = sum(c)/ (len(data)-1)
+    d = []
+    for i in range(len(data2)):
+        d.append((data2[i]-statistics.mean(data2))*(data2[i]-statistics.mean(data2)))
+        Pn2 = sum(d)/ (len(data)-1)
+    Snp2 = (Sn2+Pn2)/(len(data1)+len(data2)-2)
+    df = len(data1)+len(data2)-2
+    PH0 = 1 -  (marge_erreur / 100) 
+    Kalpha = -(t.ppf(PH0,df))
+    if ts < Kalpha:
+        print("On rejette H0 au niveau", marge_erreur,'%')
+    else :
+        print("On ne rejette pas l'hypothése null")
+        
+
+def Test_Comparaison_Student_Eq(data1,data2,marge_erreur):
+    c = []
+    for i in range(len(data1)):
+        c.append((data1[i]-statistics.mean(data1))*(data1[i]-statistics.mean(data2)))
+        Sn2 = sum(c)/ (len(data)-1)
+    d = []
+    for i in range(len(data2)):
+        d.append((data2[i]-statistics.mean(data1))*(data2[i]-statistics.mean(data2)))
+        Pn2 = sum(d)/ (len(data)-1)
+    Snp2 = (Sn2+Pn2)/(len(data1)+len(data2)-2)
+    df = len(data1)+len(data2)-2
+    PH0 = 1 -  ((marge_erreur/2) / 100) 
+    Kalpha0 = -(t.ppf(PH0,df))
+    Kalpha1 = t.ppf(PH0,df)
+    if ts < Kalpha0 or ts > Kalpha1:
+        print("On rejette H0 au niveau", marge_erreur,'%')
+    else :
+        print("On ne rejette pas l'hypothése null")
+    
+    
